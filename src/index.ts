@@ -10,18 +10,20 @@ const matches = fs
   });
 
 let manunitedWins = 0;
-const homeWin = 'H';
-const awayWin = 'A';
-const draw = 'D';
 
-
-for (let match of matches){
-    if(match[1] === 'Man United' && match[5] ===homeWin){
-        manunitedWins++;
-    } else if (match[2] === 'Man United' && match[5] ===awayWin){
-        manunitedWins++;
-    }
-    
+//collection of closely related values = enum
+enum MatchResult {
+  HomeWin = 'H',
+  AwayWin = 'A',
+  Draw = 'D'
 }
 
-console.log(`Man United won ${manunitedWins} games`)
+for (let match of matches) {
+  if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
+    manunitedWins++;
+  } else if (match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {
+    manunitedWins++;
+  }
+}
+
+console.log(`Man United won ${manunitedWins} games`);
