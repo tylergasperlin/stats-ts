@@ -1,24 +1,12 @@
-import fs from 'fs';
+import {CsvFileReader} from './CsvFileReader'
+import {MatchResult} from './Enums'
 
-const matches = fs
-  .readFileSync('football.csv', {
-    encoding: 'utf-8' //utf8 is a string of data
-  })
-  .split('\n')
-  .map((row: string): string[] => {
-    return row.split(',');
-  });
+const reader = new CsvFileReader('football.csv')
+reader.read();
 
 let manunitedWins = 0;
 
-//collection of closely related values = enum
-enum MatchResult {
-  HomeWin = 'H',
-  AwayWin = 'A',
-  Draw = 'D'
-}
-
-for (let match of matches) {
+for (let match of reader.data) {
   if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
     manunitedWins++;
   } else if (match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {
