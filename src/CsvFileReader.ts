@@ -3,12 +3,14 @@ import {MatchResult} from './Enums'
 
 type MatchData = [Date, string, string, number, number, MatchResult, string]
 
-export abstract class CsvFileReader {
-  data: MatchData[] = [];
+//T is an argument for generic types 
+//T can be anything we want but by convention we use T
+export abstract class CsvFileReader<T> {
+  data: T[] = [];
 
   constructor(public filename: string) {}
 
-  abstract mapRow(row: string[]): MatchData;
+  abstract mapRow(row: string[]): T;
 
 
   read(): void {
