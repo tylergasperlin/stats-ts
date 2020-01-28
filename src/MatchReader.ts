@@ -4,7 +4,7 @@ import {MatchResult} from './Enums'
 
 type MatchData = [Date, string, string, number, number, MatchResult, string]
 
-export class MatchReader extends CsvFileReader{
+export class MatchReader extends CsvFileReader<MatchData>{
     mapRow(row: string[]): MatchData{
         return [
             //data within the row is in a standard format so we can run some processing on the original values and return a new array

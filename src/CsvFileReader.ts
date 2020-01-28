@@ -1,7 +1,5 @@
 import fs from 'fs';
-import {MatchResult} from './Enums'
 
-type MatchData = [Date, string, string, number, number, MatchResult, string]
 
 //T is an argument for generic types 
 //T can be anything we want but by convention we use T

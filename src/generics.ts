@@ -29,15 +29,20 @@ HoldString.data = 'asldk'
 
 //typeofdata is a generic argument
 //when we 
-class HoldAnything<TypeOfData>{
-    data: TypeOfData | undefined;
+class HoldAnything<T>{
+    data: T | undefined;
+
+    add(a: T): T{
+        return a;
+    }
 }
 
 //number does the same thing that a function argument does
 //give me holdanything that works with numbers
 //this customizes how the class works
 const holdNumber2 = new HoldAnything<number>();
-holdNumber.data = 123;
+holdNumber2.data = 123;
+holdNumber2.add(10)
 
-const holdString = new HoldAnything<string>();
-holdString.data= 'wahoo!'
+const holdString2 = new HoldAnything<string>();
+holdString2.data= 'wahoo!'
