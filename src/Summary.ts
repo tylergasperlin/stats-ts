@@ -11,6 +11,9 @@ export interface OutputTarget {
 }
 
 //summary is a coordinator 
+//sumarry has a reference to two interfaces outputtarget and analyzer
+//analyzer and outputtarget are initalized when summary class is initalized
+//summary uses properties of outputtarget and analyzer in its method build and printreport
 export class Summary {
   constructor(public analyzer: Analyzer, public outputTarget: OutputTarget) {}
 
