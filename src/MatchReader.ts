@@ -1,7 +1,7 @@
 import { dateStringToDate } from './utils';
 import {MatchResult} from './Enums'
+import {MatchData} from './MatchData'
 
-type MatchData = [Date, string, string, number, number, MatchResult, string]
 
 interface DataReader{
     read(): void;
@@ -16,7 +16,7 @@ export class MatchReader{
     load(): void{
         this.reader.read()
         this.matches = this.reader.data.map((row: string[]): MatchData => {
-            //after row is split we map again to parse out values of the row
+        //after row is split we map again to parse out values of the row
           return [
               //data within the row is in a standard format so we can run some processing on the original values and return a new array
               dateStringToDate(row[0]),
