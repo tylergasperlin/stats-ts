@@ -1,6 +1,6 @@
 import fs from 'fs';
-import { dateStringToDate } from './utils';
-import {MatchResult} from './Enums'
+import { dateStringToDate } from '../utils';
+import {MatchResult} from '../Enums'
 
 type MatchData = [Date, string, string, number, number, MatchResult, string]
 
